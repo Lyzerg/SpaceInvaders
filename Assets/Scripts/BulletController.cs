@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour {
 
+	[SerializeField] float speed;
+
 	// Use this for initialization
 	void Start () {
-		
+		Rigidbody2D rb = GetComponent<Rigidbody2D>();
+		rb.velocity = new Vector2 (0,1) * speed;
 	}
 	
 	// Update is called once per frame
