@@ -21,6 +21,19 @@ public class BulletController : MonoBehaviour {
 		if(other.tag == "Enemy"){
 			Destroy (other.gameObject);
 			GameManager.GM.enemyCount -= 1;
+			if(other.gameObject.name == "Enemy_A(Clone)"){ //no creo que sea lo mas optimo + 
+				GameManager.GM.uiManager.score += 10;	   //hago el score publico en "UIManager"
+			}
+			if(other.gameObject.name == "Enemy_B(Clone)"){ 
+				GameManager.GM.uiManager.score += 20;	   
+			}
+			if(other.gameObject.name == "Enemy_C(Clone)"){ 
+				GameManager.GM.uiManager.score += 30;	   
+			}
+			if(other.gameObject.name == "MiniBoss(Clone)"){ 
+				GameManager.GM.uiManager.score += 100;	   
+			}
+			GameManager.GM.uiManager.UpdateScore ();
 		}
 		Destroy (gameObject);
 	}
