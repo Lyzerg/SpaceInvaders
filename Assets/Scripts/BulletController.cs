@@ -18,8 +18,10 @@ public class BulletController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		Destroy (other.gameObject);
+		if(other.tag == "Enemy"){
+			Destroy (other.gameObject);
+			GameManager.GM.enemyCount -= 1;
+		}
 		Destroy (gameObject);
-		GameManager.GM.enemyCount -= 1;
 	}
 }

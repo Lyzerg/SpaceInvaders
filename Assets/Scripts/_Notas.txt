@@ -1,0 +1,4 @@
+Al contar
+22 cambia de asset enemigo
+al contar 44 vuelve a cambiar
+

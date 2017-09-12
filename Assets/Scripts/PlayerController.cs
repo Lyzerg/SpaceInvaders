@@ -28,9 +28,6 @@ public class PlayerController : MonoBehaviour {
 			Instantiate (bullet,transform.position, Quaternion.identity);
 
 		}
-
-
-		print (GameManager.GM.enemyCount);
 	}
 
 	void shootCooldown(){

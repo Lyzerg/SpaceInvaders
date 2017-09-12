@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 0dedb389aa7b7c243a1bef43e167b6f1
-timeCreated: 1504577870
-licenseType: Pro
+timeCreated: 1505189665
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: vinilo-space-invaders-figuras-de-color-7471_0
@@ -237,10 +237,10 @@ TextureImporter:
       name: vinilo-space-invaders-figuras-de-color-7471_9
       rect:
         serializedVersion: 2
-        x: 338
-        y: 129
+        x: 239
+        y: 133
         width: 7
-        height: 23
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,9 +251,9 @@ TextureImporter:
       name: vinilo-space-invaders-figuras-de-color-7471_10
       rect:
         serializedVersion: 2
-        x: 359
+        x: 338
         y: 129
-        width: 8
+        width: 7
         height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -265,6 +265,20 @@ TextureImporter:
       name: vinilo-space-invaders-figuras-de-color-7471_11
       rect:
         serializedVersion: 2
+        x: 359
+        y: 129
+        width: 8
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vinilo-space-invaders-figuras-de-color-7471_12
+      rect:
+        serializedVersion: 2
         x: 338
         y: 96
         width: 7
@@ -276,7 +290,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vinilo-space-invaders-figuras-de-color-7471_12
+      name: vinilo-space-invaders-figuras-de-color-7471_13
       rect:
         serializedVersion: 2
         x: 359
@@ -290,7 +304,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vinilo-space-invaders-figuras-de-color-7471_13
+      name: vinilo-space-invaders-figuras-de-color-7471_14
       rect:
         serializedVersion: 2
         x: 335
@@ -304,7 +318,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vinilo-space-invaders-figuras-de-color-7471_14
+      name: vinilo-space-invaders-figuras-de-color-7471_15
       rect:
         serializedVersion: 2
         x: 357
@@ -318,7 +332,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vinilo-space-invaders-figuras-de-color-7471_15
+      name: vinilo-space-invaders-figuras-de-color-7471_16
       rect:
         serializedVersion: 2
         x: 334
@@ -332,7 +346,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: vinilo-space-invaders-figuras-de-color-7471_16
+      name: vinilo-space-invaders-figuras-de-color-7471_17
       rect:
         serializedVersion: 2
         x: 354
