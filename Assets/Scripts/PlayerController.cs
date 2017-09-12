@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 
-		print (canShoot);
+		print (GameManager.GM.enemyCount);
 	}
 
 	void shootCooldown(){

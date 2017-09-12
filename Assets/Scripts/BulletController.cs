@@ -16,4 +16,10 @@ public class BulletController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		Destroy (other.gameObject);
+		Destroy (gameObject);
+		GameManager.GM.enemyCount -= 1;
+	}
 }

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField]GameObject enemy;
 
 	public static GameManager GM;
+	public int enemyCount;
 
 	void Awake()
 	{
@@ -25,11 +26,13 @@ public class GameManager : MonoBehaviour
 		Spawn ();
 	}
 
+
 	void Spawn()
 	{
 		for (int j = 0; j <5; j++){
 			for (int i = -5; i < 6; i++) {
-				Instantiate (enemy, new Vector2(i,j),Quaternion.identity);	
+				Instantiate (enemy, new Vector2(i,j),Quaternion.identity);
+				enemyCount +=1;
 			}
 		}
 			
