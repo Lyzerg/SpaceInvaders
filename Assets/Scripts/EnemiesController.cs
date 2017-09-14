@@ -6,6 +6,10 @@ public class EnemiesController : MonoBehaviour {
 
 	[SerializeField] float speed;
 	[SerializeField] float speedDown;
+	[SerializeField] GameObject[] weapon;
+	[SerializeField] GameObject ray;
+	int activeWeapon;
+	bool canShoot = true;
 	bool right = true;
 
 	// Use this for initialization
@@ -15,6 +19,7 @@ public class EnemiesController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//Enemies Movement
 		if (transform.position.x < 1.08f && right) {
 			transform.Translate (Vector2.right * Time.deltaTime * speed);
 		}
@@ -29,5 +34,18 @@ public class EnemiesController : MonoBehaviour {
 			right = true;
 			transform.Translate (Vector2.down * Time.deltaTime * speedDown);
 		}
+
+		//Shooting Cycle
+		if(canShoot){
+			Invoke ("Shoot",1.5f);
+			canShoot = false;
+		}
+
+	}
+
+	void Shoot(){
+		activeWeapon = Random.Range (0,10);
+		Instantiate (ray,weapon[activeWeapon].transform.position, Quaternion.identity);
+		canShoot = true;
 	}
 }

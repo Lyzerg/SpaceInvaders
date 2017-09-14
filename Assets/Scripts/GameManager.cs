@@ -6,12 +6,14 @@ public class GameManager : MonoBehaviour
 {
 	[SerializeField]GameObject[] enemies;
 	[SerializeField]GameObject defense;
+	[SerializeField]GameObject miniBoss;
 
 	public static GameManager GM;
 	public UIManager uiManager;
 	public int enemyCount;
-
+	public bool miniBossLive = false;
 	int type;
+	float delay;
 
 	void Awake() {
 		if (GM == null)
@@ -26,7 +28,16 @@ public class GameManager : MonoBehaviour
 	}
 
 	void Start() {
-		Spawn ();
+//		Spawn ();
+	}
+
+	void Update() {
+
+		if (!miniBossLive) {
+			delay = Random.Range (15f,25f);
+			Invoke ("MiniBossSpawn",delay);
+			miniBossLive = true;
+		}
 	}
 		
 	void Spawn() {
@@ -45,5 +56,9 @@ public class GameManager : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	void MiniBossSpawn(){
+		Instantiate (miniBoss);
 	}
 }
