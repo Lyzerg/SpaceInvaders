@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	[SerializeField]GameObject[] enemies;
+	[SerializeField]GameObject player;
 	[SerializeField]GameObject defense;
 	[SerializeField]GameObject miniBoss;
 
@@ -12,7 +13,7 @@ public class GameManager : MonoBehaviour
 	public UIManager uiManager;
 	public int enemyCount;
 	public bool miniBossLive = false;
-	int type;
+	int type = 2;
 	float delay;
 
 	void Awake() {
@@ -28,7 +29,8 @@ public class GameManager : MonoBehaviour
 	}
 
 	void Start() {
-//		Spawn ();
+		StartCoroutine (Spawn());
+		Instantiate (player);
 	}
 
 	void Update() {
@@ -40,20 +42,21 @@ public class GameManager : MonoBehaviour
 		}
 	}
 		
-	void Spawn() {
+	IEnumerator Spawn() {
 		Instantiate (defense);
 
-		for (float j = 0.7f; j <=3.5f; j+=0.7f){
+		for (float j = 3.5f; j >=0.6f; j-=0.7f){
 			for (int i = -5; i < 6; i++) {
 				GameObject enemyChild = Instantiate (enemies[type], new Vector2(i,j),Quaternion.identity); //as GameObject
 				enemyChild.transform.parent = GameObject.Find ("EnemiesController").transform;
 				enemyCount +=1;
-				if (enemyCount == 22){
+				if (enemyCount == 11){
 					type = 1;
 				}
-				if (enemyCount == 44) {
-					type = 2;
+				if (enemyCount == 33) {
+					type = 0;
 				}
+				yield return new WaitForSeconds (0.05f);
 			}
 		}
 	}

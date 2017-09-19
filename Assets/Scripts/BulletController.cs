@@ -16,21 +16,24 @@ public class BulletController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		print (weaponPosition);
+		
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Enemy"){
 			Destroy (other.gameObject);
-			GameManager.GM.enemyCount -= 1;
+//			GameManager.GM.enemyCount -= 1;
 			if(other.gameObject.name == "Enemy_A(Clone)"){ //no creo que sea lo mas optimo + 
 				GameManager.GM.uiManager.score += 10;	   //hago el score publico en "UIManager"
+				GameManager.GM.enemyCount-=1;
 			}
 			if(other.gameObject.name == "Enemy_B(Clone)"){ 
-				GameManager.GM.uiManager.score += 20;	   
+				GameManager.GM.uiManager.score += 20;	
+				GameManager.GM.enemyCount-=1;
 			}
 			if(other.gameObject.name == "Enemy_C(Clone)"){ 
-				GameManager.GM.uiManager.score += 30;	   
+				GameManager.GM.uiManager.score += 30;	
+				GameManager.GM.enemyCount-=1;
 			}
 			if(other.gameObject.name == "MiniBoss(Clone)"){ 
 				GameManager.GM.uiManager.score += 100;	
@@ -38,15 +41,6 @@ public class BulletController : MonoBehaviour {
 			}
 			GameManager.GM.uiManager.UpdateScore ();
 			Destroy (gameObject);
-		}
-		if (other.tag == "Weapon") {	//En este punto se que destruire el enemigo que esta justo arriba
-			if(weaponPosition < 4){ //Solo puedo "pasar" el arma hacia arriba 4 veces
-				other.transform.position += Vector3.up * 0.7f;
-				weaponPosition += 1;
-			}
-			if (weaponPosition == 4){
-				Destroy (other.gameObject);
-			}
 		}
 		else {
 			Destroy (gameObject);
