@@ -23,12 +23,12 @@ public class EnemiesController : MonoBehaviour {
 		//Disparo para Debugg
 		if(Input.GetKeyDown (KeyCode.P)){
 			Instantiate (ray,transform.position, Quaternion.identity);
+
 		}
 
 	}
 
 	IEnumerator EnemiesMovement(){
-		print (GameManager.GM.playerLive);
 		yield return new WaitForSeconds (0.56f);
 		if(GameManager.GM.playerLive){
 			//Enemies Movement
@@ -50,7 +50,11 @@ public class EnemiesController : MonoBehaviour {
 	}
 
 	void AddSpeed (){
-		speed += 0.0005f;
+		if (GameManager.GM.playerLive) {
+			speed += 0.0005f;
+		}
 	}
+
+
 		
 }

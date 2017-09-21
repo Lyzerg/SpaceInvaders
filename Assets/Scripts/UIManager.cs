@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour {
 	public int score;
 	[SerializeField]Text lifeUI;
 	public int life = 6;
+	[SerializeField]Text gameOverText;
 
 	public void UpdateScore(){
 		scoreUI.text = "Score: " + score;
@@ -16,5 +17,9 @@ public class UIManager : MonoBehaviour {
 
 	public void UpdateLife(){
 		lifeUI.text = "" + life;
+	}
+
+	public void GameOver(){
+		gameOverText.text = "GAME OVER";
 	}
 }

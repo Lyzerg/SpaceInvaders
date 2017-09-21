@@ -19,5 +19,6 @@ public class MiniBoss : MonoBehaviour {
 			Destroy(gameObject);
 			GameManager.GM.miniBossLive = false;
 		}
+			
 	}
 }

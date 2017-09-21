@@ -20,33 +20,29 @@ public class BulletController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.tag == "Enemy"){
-			Destroy (other.gameObject);
-//			GameManager.GM.enemyCount -= 1;
-			if(other.gameObject.name == "Enemy_A(Clone)"){ //no creo que sea lo mas optimo + 
+		
+			if(other.gameObject.tag == "Enemy_A"){ //no creo que sea lo mas optimo + 
+				Destroy(other.gameObject);
 				GameManager.GM.uiManager.score += 10;	   //hago el score publico en "UIManager"
 				GameManager.GM.enemyCount-=1;
 			}
-			if(other.gameObject.name == "Enemy_B(Clone)"){ 
+			if(other.gameObject.tag == "Enemy_B"){ 
+				Destroy(other.gameObject);
 				GameManager.GM.uiManager.score += 20;	
 				GameManager.GM.enemyCount-=1;
 			}
-			if(other.gameObject.name == "Enemy_C(Clone)"){ 
+			if(other.gameObject.tag == "Enemy_C"){ 
+				Destroy(other.gameObject);	
 				GameManager.GM.uiManager.score += 30;	
 				GameManager.GM.enemyCount-=1;
 			}
-			if(other.gameObject.name == "MiniBoss(Clone)"){ 
+			if(other.gameObject.tag == "MiniBoss"){ 
+				Destroy(other.gameObject);
 				GameManager.GM.uiManager.score += 100;	
 				GameManager.GM.miniBossLive = false;
 			}
-			GameManager.GM.uiManager.UpdateScore ();
-			Destroy (gameObject);
-		}
-		else {
-			Destroy (gameObject);
-		}
-
-
+		GameManager.GM.uiManager.UpdateScore ();
+		Destroy (gameObject);
 	}
 		
 }

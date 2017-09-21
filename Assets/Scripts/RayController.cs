@@ -19,22 +19,26 @@ public class RayController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Player") {
+//			print ("Player");
 			Destroy (other.gameObject);
 			Destroy (gameObject);
 			GameManager.GM.uiManager.life -= 1;
 			GameManager.GM.uiManager.UpdateLife ();
 			GameManager.GM.playerLive = false;
+
 									
 		} 
-		if(other.tag == "Bullet"){
-			Destroy (other.gameObject);
+		if(other.tag == "Enemy_A" || other.tag == "Enemy_B" || other.tag == "Enemy_C"){
+			
 		}
-		if (other.tag == "Struct") {
+		else if (other.tag == "Struct") {
+//			print ("Struct");
 			Destroy (other.gameObject);
 			Destroy (gameObject);
 		}
 		else {
 			Destroy (gameObject);
+//			print ("WTF || Border");
 		}
 	}
 }

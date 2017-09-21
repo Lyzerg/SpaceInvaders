@@ -10,8 +10,15 @@ public class PlayerController : MonoBehaviour {
 	bool canShoot = true;
 	bool canMove = false;
 
-	// Use this for initialization
+
+	void Awake(){
+		if (GameObject.FindGameObjectsWithTag ("Player").Length > 1) {
+			Destroy (gameObject);
+		}
+	}
+
 	void Start () {
+
 		if (GameManager.GM.uiManager.life == 6) { //si es el primer spawn
 			StartCoroutine (MovementLock ());
 		}
