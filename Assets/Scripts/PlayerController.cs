@@ -12,7 +12,12 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine (MovementLock());
+		if (GameManager.GM.uiManager.life == 6) { //si es el primer spawn
+			StartCoroutine (MovementLock ());
+		}
+		else {
+			canMove = true;
+		}
 	}
 
 	// Update is called once per frame
@@ -38,7 +43,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	IEnumerator MovementLock(){
-		yield return new WaitForSeconds (2.8f);
+		yield return new WaitForSeconds (0.9f);
 		canMove = true;
 	}
 }

@@ -7,8 +7,14 @@ public class UIManager : MonoBehaviour {
 
 	[SerializeField]Text scoreUI;
 	public int score;
+	[SerializeField]Text lifeUI;
+	public int life = 6;
 
 	public void UpdateScore(){
 		scoreUI.text = "Score: " + score;
+	}
+
+	public void UpdateLife(){
+		lifeUI.text = "" + life;
 	}
 }

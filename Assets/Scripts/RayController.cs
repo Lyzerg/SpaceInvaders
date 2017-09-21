@@ -21,16 +21,19 @@ public class RayController : MonoBehaviour {
 		if (other.tag == "Player") {
 			Destroy (other.gameObject);
 			Destroy (gameObject);
-									//You Loose, bajar vida
+			GameManager.GM.uiManager.life -= 1;
+			GameManager.GM.uiManager.UpdateLife ();
+			GameManager.GM.playerLive = false;
+									
 		} 
 		if(other.tag == "Bullet"){
 			Destroy (other.gameObject);
 		}
-		if(other.tag == "Enemy" || other.tag == "Weapon"){
-			 //no hace nada, evito "FriendlyFire"
+		if (other.tag == "Struct") {
+			Destroy (other.gameObject);
+			Destroy (gameObject);
 		}
 		else {
-			Destroy (other.gameObject);
 			Destroy (gameObject);
 		}
 	}

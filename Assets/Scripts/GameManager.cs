@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
 	public UIManager uiManager;
 	public int enemyCount;
 	public bool miniBossLive = false;
-	int type = 2;
+	public bool playerLive = true;
+	int type = 0;
 	float delay;
 
 	void Awake() {
@@ -31,32 +32,39 @@ public class GameManager : MonoBehaviour
 	void Start() {
 		StartCoroutine (Spawn());
 		Instantiate (player);
+		playerLive = true;
 	}
 
 	void Update() {
+
 
 		if (!miniBossLive) {
 			delay = Random.Range (15f,25f);
 			Invoke ("MiniBossSpawn",delay);
 			miniBossLive = true;
 		}
+
+		StartCoroutine (PlayerSpawn());
+
+	
+			
 	}
 		
 	IEnumerator Spawn() {
 		Instantiate (defense);
 
-		for (float j = 3.5f; j >=0.6f; j-=0.7f){
+		for (float j = 0.7f; j <=3.5f; j+=0.7f){
 			for (int i = -5; i < 6; i++) {
 				GameObject enemyChild = Instantiate (enemies[type], new Vector2(i,j),Quaternion.identity); //as GameObject
 				enemyChild.transform.parent = GameObject.Find ("EnemiesController").transform;
 				enemyCount +=1;
-				if (enemyCount == 11){
+				if (enemyCount == 22){
 					type = 1;
 				}
-				if (enemyCount == 33) {
-					type = 0;
+				if (enemyCount == 44) {
+					type = 2;
 				}
-				yield return new WaitForSeconds (0.05f);
+				yield return new WaitForSeconds (0.01f);
 			}
 		}
 	}
@@ -64,4 +72,14 @@ public class GameManager : MonoBehaviour
 	void MiniBossSpawn(){
 		Instantiate (miniBoss);
 	}
+
+	IEnumerator PlayerSpawn(){
+		if (!playerLive) {
+			yield return new WaitForSeconds (3);
+			playerLive = true;
+			Instantiate (player);
+
+		}
+	}
+		
 }
