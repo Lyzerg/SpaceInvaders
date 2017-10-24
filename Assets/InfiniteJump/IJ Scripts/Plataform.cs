@@ -27,7 +27,7 @@ public class Plataform : MonoBehaviour {
 
 
 	void OnCollisionExit(){
-		Destroy (gameObject, 0.5f);
+		Destroy (gameObject);
 	}
 }
 
