@@ -12,6 +12,8 @@ public class GameManagerIso : MonoBehaviour {
 	[SerializeField]Text gameOverUI;
 	[SerializeField]Image redUI;
 	public float velocity;
+	float time;
+	public bool gameOver;
 
 	void Awake()
 	{
@@ -30,21 +32,34 @@ public class GameManagerIso : MonoBehaviour {
 		velocity = -10.0f;
 		Spawner ();
 		StartCoroutine (Increment());
+
 	}
 
-	void FixedUpdate(){
-		scoreUI.text = "Time: " + Time.time; //NO esta bien conectado el timepo
+	void Update(){
+		if(!gameOver){
+			time += Time.deltaTime;
+			scoreUI.text = "Time: " + time; //NO esta bien conectado el timepo
+		}
 	}
 
 	public void Spawner(){
-		int rndObj = Random.Range (0, 2);
-		int rndPos = Random.Range (-4,5);
-		Instantiate (boulder[rndObj], new Vector3(rndPos,-0.5f,24), Quaternion.identity);
+		if(!gameOver){
+			int rndObj = Random.Range (0, 2);
+			int rndPos = Random.Range (-4,5);
+			Instantiate (boulder[rndObj], new Vector3(rndPos,-0.5f,24), Quaternion.identity);
+		}
 	}
 
 	IEnumerator Increment(){
 		for (velocity = -15; velocity > -70; velocity--) {
 			yield return new WaitForSeconds (1);
 		}
+	}
+
+	public void GameOver(){
+		redUI.enabled = true;
+		gameOverUI.enabled = true;
+		scoreUI.color = Color.black;
+		gameOver = true;
 	}
 }

@@ -13,13 +13,18 @@ public class Boulder : MonoBehaviour {
 
 	void Update(){
 		if(transform.position.z <= -9.8f){
-			Destroy(gameObject);
+			Destroy(gameObject);        	//Mueren al llegar al limite visual
 
 		}
+
 		if(transform.position.z <= 2.0f && canSpawn){
 			GameManagerIso.GM.Spawner ();
 			canSpawn = false;
 			Invoke ("spawnCd",2);
+		}
+
+		if(GameManagerIso.GM.gameOver){
+			Destroy(gameObject); 
 		}
 	}
 
