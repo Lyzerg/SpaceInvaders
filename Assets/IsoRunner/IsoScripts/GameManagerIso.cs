@@ -61,5 +61,6 @@ public class GameManagerIso : MonoBehaviour {
 		gameOverUI.enabled = true;
 		scoreUI.color = Color.black;
 		gameOver = true;
+		//crea es sist de part
 	}
 }
