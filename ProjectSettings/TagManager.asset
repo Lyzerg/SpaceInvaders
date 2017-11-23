@@ -12,6 +12,8 @@ TagManager:
   - Enemy_B
   - Enemy_C
   - MiniBoss
+  - Boulder
+  - Trigger
   layers:
   - Default
   - TransparentFX

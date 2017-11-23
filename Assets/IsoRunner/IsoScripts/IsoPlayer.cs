@@ -71,12 +71,22 @@ public class IsoPlayer : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
-	void OnCollisionExit(){
-		airborne = true;
+	void OnCollisionExit(Collision collision){
+		if (collision.collider.tag == "Player") {
+			print ("Jugador ");
+		} else {
+			airborne = true;
+		}
 	}
 
-	void OnCollisionEnter(){
-		airborne = false;;
+	void OnCollisionEnter(Collision collision){
+		if (collision.collider.tag == "Player") {
+			print ("Jugador ");
+		} else {
+			airborne = false;
+		}
+
+
 	}
 
 
