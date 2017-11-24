@@ -48,11 +48,11 @@ public class GameManagerF : MonoBehaviour {
 	void Spawner(){
 		if(!gameOver){
 			float rndY = Random.Range (-5.5f, -1);
-			float rndY2 = Random.Range (7.5f, 9f);
+			float rndY2 = Random.Range (8f, 9f);
 			Instantiate (lower, new Vector3(5 ,rndY,0), Quaternion.identity);
 			Instantiate (upper, new Vector3(5, rndY + rndY2, 0), Quaternion.identity);
 			Instantiate (pipe, new Vector3(5, rndY + 4.25f, 0), Quaternion.identity);
-			timer = Random.Range (2f,4.5f);
+			timer = Random.Range (2.5f,4.5f);
 		}
 	}
 
