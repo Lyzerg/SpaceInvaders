@@ -8,6 +8,8 @@ public class IsoPlayer : MonoBehaviour {
 	Rigidbody rb;
 	bool airborne;
 	int z;
+	[SerializeField] int dodgeSpeed;
+	bool dodging;
 	[SerializeField]int speed;
 	[SerializeField]bool player2;
 
@@ -18,9 +20,6 @@ public class IsoPlayer : MonoBehaviour {
 
 	void Update () {
 		
-
-		print (airborne);
-
 		if (transform.position.x >= 5 || transform.position.x <= -5) {			 //Se sale, se muere
 			//Pierde el control del imput  SI
 			//Render Game over Panel 		SI
@@ -34,10 +33,10 @@ public class IsoPlayer : MonoBehaviour {
 			
 			if (!player2) {
 				if (Input.GetKeyDown (KeyCode.A) && !airborne) {						//poner
-					transform.position -= new Vector3 (1, 0, 0);
+					StartCoroutine (ChangeLane (false));
 				}
 				if (Input.GetKeyDown (KeyCode.D) && !airborne) {						//poner
-					transform.position += new Vector3 (1, 0, 0);
+					StartCoroutine (ChangeLane (true));
 				}
 
 
@@ -48,14 +47,16 @@ public class IsoPlayer : MonoBehaviour {
 
 			} 
 			else {
-				if (Input.GetKeyDown (KeyCode.LeftArrow) && !airborne) {						//poner
-					transform.position -= new Vector3 (1, 0, 0);
-				}
-				if (Input.GetKeyDown (KeyCode.RightArrow) && !airborne) {						//poner
-					transform.position += new Vector3 (1, 0, 0);
+
+				//movimiento
+				if (Input.GetKeyDown (KeyCode.LeftArrow) && !airborne) {
+					StartCoroutine (ChangeLane (false));
 				}
 
-
+				if (Input.GetKeyDown (KeyCode.RightArrow) && !airborne) {
+					StartCoroutine (ChangeLane (true));
+				}
+					
 				if (Input.GetKey (KeyCode.UpArrow) && !airborne) {
 
 					rb.velocity = new Vector3 (0,10,0);
@@ -87,6 +88,28 @@ public class IsoPlayer : MonoBehaviour {
 		}
 
 
+	}
+
+	IEnumerator ChangeLane(bool right)
+	{
+		if (!dodging) {
+			dodging = true;
+			float currentX = transform.position.x;
+
+			if (!right) {
+				while (transform.position.x > currentX - 1) {
+					transform.Translate (Vector3.left * Time.deltaTime * dodgeSpeed);
+					yield return new WaitForEndOfFrame ();
+				}
+			} else {
+				while (transform.position.x < currentX + 1) {
+					transform.Translate (Vector3.right * Time.deltaTime * dodgeSpeed);
+					yield return new WaitForEndOfFrame ();
+				}
+			}
+
+		}
+		dodging = false;
 	}
 
 

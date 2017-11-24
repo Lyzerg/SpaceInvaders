@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boom: {fileID: 1584974003684394, guid: c2126ef55124d714dabc04e5e8cff3df, type: 2}
+  dodgeSpeed: 5
   speed: 10
   player2: 1
 --- !u!54 &570501474
@@ -791,6 +792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boom: {fileID: 1584974003684394, guid: c2126ef55124d714dabc04e5e8cff3df, type: 2}
+  dodgeSpeed: 5
   speed: 10
   player2: 0
 --- !u!1 &964940093
