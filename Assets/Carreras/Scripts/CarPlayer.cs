@@ -39,6 +39,36 @@ public class CarPlayer : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter2D(Collider2D other){
+		if (blue) {			//Jugador Azul
+			if (other.gameObject.tag == "Blue") { 		//Toca Azul
+				print ("Azul Toma Azul...");
+				GameManagerC.GM.UpdateScore ();
+				Destroy (other.gameObject);
+			}
+			else {			//Toca Rojo
+				print ("Azul Toma Rojo Y MUERE...");
+				GameManagerC.GM.GameOver ();
+				Destroy (other.gameObject);
+				Destroy (gameObject);
+			}
+		}
+		else {
+			if (other.gameObject.tag == "Blue") { 		//Toca Azul
+				print ("Rojo Toma Azul y muere...");
+				GameManagerC.GM.GameOver ();
+				Destroy (other.gameObject);
+				Destroy (gameObject);
+			}
+			else {			//Toca Rojo
+				print ("Rojo Toma Rojo...");
+				GameManagerC.GM.UpdateScore ();
+				Destroy (other.gameObject);
+			}
+			
+		}
+	}
+
 	IEnumerator ChangeLane(bool right)
 	{
 		if (!dodging) {
