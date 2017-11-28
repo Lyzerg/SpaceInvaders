@@ -371,6 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dodgeSpeed: 20
   blue: 1
+  boom: {fileID: 1554050235239636, guid: 5ccd3bb3ff2803244b55151c525b78a9, type: 2}
 --- !u!61 &294620907
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -571,6 +572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreUI: {fileID: 1691788132}
   gameOverText: {fileID: 1184242416}
+  restart: {fileID: 1316790449}
   Circle:
   - {fileID: 1987169733930100, guid: 3c74d4fd9c959be429bedc5cf305c9ed, type: 2}
   - {fileID: 1194726795612284, guid: 02963455fb4c7bf4f9a2a85dbd822212, type: 2}
@@ -589,6 +591,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &958462805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 958462806}
+  - component: {fileID: 958462808}
+  - component: {fileID: 958462807}
+  m_Layer: 5
+  m_Name: HighrScore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &958462806
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 958462805}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1438305535}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 855.13, y: 505.29004}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &958462807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 958462805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 85
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 8
+    m_MaxSize: 134
+    m_Alignment: 2
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'HighScore: 721'
+--- !u!222 &958462808
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 958462805}
 --- !u!1 &995505915
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,7 +1004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1316790450
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1121,6 +1197,7 @@ RectTransform:
   - {fileID: 1691788131}
   - {fileID: 1184242415}
   - {fileID: 1316790450}
+  - {fileID: 958462806}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1216,6 +1293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dodgeSpeed: 25
   blue: 0
+  boom: {fileID: 1554050235239636, guid: 5ccd3bb3ff2803244b55151c525b78a9, type: 2}
 --- !u!61 &1610149330
 BoxCollider2D:
   m_ObjectHideFlags: 0

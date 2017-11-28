@@ -90,6 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  blue: 0
+  boom: {fileID: 1554050235239636, guid: 5ccd3bb3ff2803244b55151c525b78a9, type: 2}
 --- !u!212 &212132253931245814
 SpriteRenderer:
   m_ObjectHideFlags: 1

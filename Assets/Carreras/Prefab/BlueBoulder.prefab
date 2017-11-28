@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   blue: 1
+  boom: {fileID: 1554050235239636, guid: 5ccd3bb3ff2803244b55151c525b78a9, type: 2}
 --- !u!212 &212817735588728090
 SpriteRenderer:
   m_ObjectHideFlags: 1
