@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManagerC : MonoBehaviour {
 
@@ -10,18 +11,20 @@ public class GameManagerC : MonoBehaviour {
 //	[SerializeField]UIC uic;
 	[SerializeField]Text scoreUI;
 	[SerializeField]Text gameOverText;
+	[SerializeField]GameObject restart;
 	int score;
 
 	[SerializeField]GameObject[] Circle;
 	int rndCase;
 	float posX;
+	public bool uDied;
 	public float velocity;
 
 	void Awake() {
 		if (GM == null)
 		{
 			GM = this;
-			DontDestroyOnLoad(this);
+//			DontDestroyOnLoad(this);
 		}
 		else
 		{
@@ -37,6 +40,7 @@ public class GameManagerC : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 	}
 
 	public void Spawn(){
@@ -77,7 +81,15 @@ public class GameManagerC : MonoBehaviour {
 	}
 
 	public void GameOver(){
+		uDied = true;
 		gameOverText.enabled = true;
+		restart.SetActive(true);
+	}
+
+	public void Restart(){
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+
+//		Spawn ();
 	}
 		
 }
